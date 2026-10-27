@@ -1,0 +1,13 @@
+# Terraform directories and files
+.terraform/
+*.html
+create_vm/
+*.terraform.lock.*
+
+# State files & variables
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+*.tfvars*
