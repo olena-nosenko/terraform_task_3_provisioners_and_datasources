@@ -5,9 +5,9 @@ resource "null_resource" "nginx" {
   }
 
   connection {
-    type     = "ssh"
-    host     = data.azurerm_virtual_machine.task3.public_ip_address
-    user     = var.admin_username
+    type        = "ssh"
+    host        = data.azurerm_virtual_machine.task3.public_ip_address
+    user        = var.admin_username
     private_key = file(var.private_key_path)
     timeout     = "5m"
   }
