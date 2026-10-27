@@ -1,7 +1,7 @@
 resource "null_resource" "nginx" {
   triggers = {
     vm_id    = data.azurerm_virtual_machine.task3.id
-    page_sha = filesha256("index.html")
+    page_sha = fileexists("${path.module}/index.html") ? filesha256("${path.module}/index.html") : "not-found"
   }
 
   connection {
@@ -22,7 +22,7 @@ resource "null_resource" "nginx" {
   }
 
   provisioner "file" {
-    source      = "index.html"
+    source      = "${path.module}/index.html"
     destination = "/tmp/index.html"
   }
 
